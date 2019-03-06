@@ -1,0 +1,17 @@
+<resources>
+    <dimen name="general_padding_40dp">40dp</dimen>
+    <dimen name="general_padding_big">30dp</dimen>
+    <dimen name="general_padding">20dp</dimen>
+    <dimen name="general_padding_16">16dp</dimen>
+    <dimen name="general_padding_12">12dp</dimen>
+    <dimen name="general_padding_small">10dp</dimen>
+    <dimen name="general_padding_smaller">8dp</dimen>
+    <dimen name="general_padding_tiny">6dp</dimen>
+    <dimen name="general_padding_3dp">3dp</dimen>
+
+    <dimen name="anchor_point">300dp</dimen>
+    <dimen name="bottom_sheet_peek_height">94dp</dimen>
+    <dimen name="toolbar_height">44dp</dimen>
+
+    <dimen name="btn_size">46dp</dimen>
+</resources>

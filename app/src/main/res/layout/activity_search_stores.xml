@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.SearchStoresActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_behavior="@string/ScrollingAppBarLayoutBehavior">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Widget.MyApp.ActionBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/keyColor"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <RelativeLayout
+                    android:id="@+id/toolbarLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bar_main_image"
+                        android:src="@drawable/akapnos_main_logo"
+                        android:layout_margin="8dp"
+                        android:layout_centerInParent="true"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        />
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/title"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:text="@string/STORES"-->
+                        <!--android:textColor="@android:color/white"-->
+                        <!--android:textSize="18sp" />-->
+
+                    <!--<ImageView-->
+                    <!--android:id="@+id/searchBtn"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:src="@drawaic_search_whitehite"-->
+                    <!--tools:ignore="ContentDescription" />-->
+                    <!--<ImageView-->
+                    <!--android:id="@+id/filtersBtn"-->
+                    <!--android:layout_toStartOf="@+id/searchBtn"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:src="@drawable/ic_filter_list_black_24dp"-->
+                    <!--tools:ignore="ContentDescription"-->
+                    <!--android:layout_marginEnd="@dimen/general_padding"/>-->
+
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:id="@+id/filters_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_bar_layout">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/filters_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/filters_container"
+            android:layout_above="@id/bottom">
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/listContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/toolbar_height"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_below="@id/filters_container">
+
+            <View
+                android:id="@+id/top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#7F000000" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_above="@id/bottom"
+            android:background="@drawable/shadow_top"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"/>
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/white"
+            >
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/clearSearchContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@color/keyColor"
+                android:elevation="0dp"
+                android:layout_marginStart="@dimen/general_padding_small"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="8dp"
+                app:contentPadding="4dp"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginEnd="4dp"
+                        android:src="@drawable/icon_close"
+                        android:tint="@color/white" />
+                    <TextView
+                        android:id="@+id/clearSearchText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:text="@string/PLEASE_WAIT"/>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:layout_toEndOf="@id/clearSearchContainer"
+                android:id="@+id/listBtn"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingEnd="@dimen/general_padding_small"
+                android:paddingStart="@dimen/general_padding_small"
+                android:textColor="#757575"
+                android:textAlignment="textEnd"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/loading_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/loading_view_bg_light"
+            >
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <br.com.mauker.materialsearchview.MaterialSearchView
+        android:id="@+id/map_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/MaterialSearchViewStyle"/>
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/anchor_point"
+        android:background="@color/transparent"
+        app:layout_behavior="@string/BackDropBottomSheetBehavior"
+        android:fitsSystemWindows="true"
+        />
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        app:behavior_peekHeight="@dimen/bottom_sheet_peek_height"
+        app:layout_behavior="@string/BottomSheetBehaviorGoogleMapsLike"
+        android:fitsSystemWindows="true">
+
+        <include
+            layout="@layout/map_item_detail_sheet_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/merged_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/keyColor"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:tag="modal-appbar"
+        app:layout_behavior="@string/MergedAppBarLayoutBehavior">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/background"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/keyColor2"
+                android:layout_gravity="bottom"/>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/expanded_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                style="@style/Widget.MyApp.ActionBar"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="@string/KEY_BINDING_DEFAULT_TOOLBAR_NAME"
+                app:navigationIcon="@drawable/ic_close_white_24dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:id="@+id/toolbar_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        />
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+</android.support.design.widget.CoordinatorLayout>

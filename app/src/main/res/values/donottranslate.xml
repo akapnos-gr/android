@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="BackDropBottomSheetBehavior">gr.akapnos.app.libraries.custombottomsheetbehavior.BackdropBottomSheetBehavior</string>
+    <string name="BottomSheetBehaviorGoogleMapsLike">gr.akapnos.app.libraries.custombottomsheetbehavior.BottomSheetBehaviorGoogleMapsLike</string>
+    <string name="ScrollAwareFABBehavior">gr.akapnos.app.libraries.custombottomsheetbehavior.ScrollAwareFABBehavior</string>
+    <string name="ScrollAwareImageViewBehavior">gr.akapnos.app.libraries.custombottomsheetbehavior.ScrollAwareImageViewBehavior</string>
+    <string name="MergedAppBarLayoutBehavior">gr.akapnos.app.libraries.custombottomsheetbehavior.MergedAppBarLayoutBehavior</string>
+    <string name="ScrollingAppBarLayoutBehavior">gr.akapnos.app.libraries.custombottomsheetbehavior.ScrollingAppBarLayoutBehavior</string>
+
+    <string name="CHOOSE_LANGUAGE">CHOOSE LANGUAGE</string>
+    <string name="KEY_BINDING_DEFAULT_TOOLBAR_NAME">Modal-Toolbar-Title</string>
+</resources>

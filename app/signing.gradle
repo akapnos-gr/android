@@ -1,0 +1,10 @@
+android {
+    signingConfigs {
+        akapnos {
+            storeFile file(" ")
+            storePassword ""
+            keyAlias ""
+            keyPassword ""
+        }
+    }
+}

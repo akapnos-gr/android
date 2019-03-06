@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/general_padding">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/shadow_view" />
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_sheet_peek_height"
+        android:background="@color/light_gray"
+        android:paddingEnd="@dimen/general_padding_16"
+        android:paddingStart="@dimen/general_padding_16"
+        >
+
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/arrow_up"
+            android:layout_width="24dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/arrow_up"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/arrow_up"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_marginBottom="14dp"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/distance_container">
+
+            <TextView
+                android:id="@+id/bottom_sheet_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/PLEASE_WAIT"
+                android:textColor="@android:color/black"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/bottom_sheet_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/PLEASE_WAIT"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/map_fab"
+                android:background="@drawable/circle_1"
+                android:layout_width="@dimen/btn_size"
+                android:layout_height="@dimen/btn_size"
+                android:src="@drawable/ic_action_go"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:clickable="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+
+                />
+            <!--<View-->
+                <!--android:id="@+id/distance_top"-->
+                <!--android:layout_width="8dp"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:layout_height="12dp"/>-->
+            <LinearLayout
+                android:id="@+id/distance_container"
+                android:layout_below="@id/map_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/mode"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/arrow_back"
+                    android:layout_marginEnd="4dp"
+                    />
+                <TextView
+                    android:id="@+id/walking_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 min"
+                    android:textSize="14sp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/shadow_view" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/store_type"
+            android:text="@string/PLEASE_WAIT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/fav_button"
+            android:layout_marginEnd="10dp"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/fav_button"
+            android:background="@drawable/circle_1"
+            android:layout_width="@dimen/btn_size"
+            android:layout_height="@dimen/btn_size"
+            android:src="@drawable/icon_fav"
+            android:padding="8dp"
+
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H,16:9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white">
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/store_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+            <ProgressBar
+                android:id="@+id/image_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/contact_info_recycler"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/btn_phone"
+            android:background="@drawable/circle_1"
+            android:layout_width="@dimen/btn_size"
+            android:layout_height="@dimen/btn_size"
+            android:src="@drawable/link_phone"
+            android:padding="12dp"
+            android:layout_marginEnd="10dp"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/btn_web"
+            android:layout_width="@dimen/btn_size"
+            android:layout_height="@dimen/btn_size"
+            android:src="@drawable/link_web"
+            android:padding="0dp"
+            android:layout_marginEnd="10dp"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/btn_tripadvisor"
+            android:background="@drawable/circle_1"
+            android:layout_width="@dimen/btn_size"
+            android:layout_height="@dimen/btn_size"
+            android:src="@drawable/link_tripadvisor"
+            android:padding="0dp"
+            android:layout_marginEnd="10dp"  />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/btn_etable"
+            android:background="@drawable/circle_1"
+            android:layout_width="@dimen/btn_size"
+            android:layout_height="@dimen/btn_size"
+            android:src="@drawable/link_etable"
+            android:padding="0dp"
+            />
+
+    </LinearLayout>
+</LinearLayout>

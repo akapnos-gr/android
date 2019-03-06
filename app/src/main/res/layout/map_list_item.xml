@@ -1,0 +1,86 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/bulletPoint"
+            android:layout_width="26dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle_view"
+            android:layout_marginTop="4dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/title_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/right_container">
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/PLEASE_WAIT"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/PLEASE_WAIT"
+                        android:textColor="#747474" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/right_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true">
+
+                    <TextView
+                        android:id="@+id/distance_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/PLEASE_WAIT"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp"/>
+                    <ImageView
+                        android:layout_marginTop="4dp"
+                        android:id="@+id/etable_indicator"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/link_etable"
+                        android:layout_gravity="end"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <include layout="@layout/separator_line"/>
+</LinearLayout>

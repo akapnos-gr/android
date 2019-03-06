@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "397012759542",
+    "firebase_url": "https://akapnos-18555.firebaseio.com",
+    "project_id": "akapnos-18555",
+    "storage_bucket": "akapnos-18555.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397012759542:android:858362ccc26d2094",
+        "android_client_info": {
+          "package_name": "gr.akapnos.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397012759542-gsa7frkvsqre8fgt2f2ifp6l7550kuap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNS3qP2EAIRa2qGAi0DR2reFeu9Yw-SfY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

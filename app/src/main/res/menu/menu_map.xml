@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <group
+        android:id="@+id/map_menu_group"
+        android:checkableBehavior="single">
+        <!--<item-->
+            <!--android:id="@+id/filtersBtn"-->
+            <!--android:title="@string/SEARCH"-->
+            <!--android:icon="@drawable/ic_filter_list_black_24dp"-->
+            <!--app:showAsAction="always"-->
+            <!--/>-->
+        <item
+            android:id="@+id/action_search"
+            android:title="@string/SEARCH"
+            android:icon="@drawable/icon_search_white"
+            app:showAsAction="always"
+            />
+    </group>
+</menu>

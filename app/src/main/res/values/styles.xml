@@ -1,0 +1,96 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/keyColor</item>
+        <item name="colorPrimaryDark">@color/keyColor</item>
+        <item name="colorAccent">@color/keyColor</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.DetailTheme">
+        <item name="windowActionBar">false</item>
+        <!--<item name="android:theme">@style/ThemeOverlay.AppCompat.Dark</item>-->
+        <!--<item name="android:theme">@style/Theme.Fullscreen</item>-->
+    </style>
+
+    <style name="MyTheme" parent="Theme.AppCompat">
+
+    </style>
+    <style name="MyTheme.NoActionBar">
+        <!-- both your properties are there -->
+        <!-- Remove other ones.. i.e. windowActionBarOverlay and all -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.DetailThemeLight">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="Widget.MyApp.ActionBar" parent="Widget.AppCompat.ActionBar">
+        <!--<item name="android:background">@color/colorPrimary</item>-->
+        <item name="android:theme">@style/ThemeOverlay.MyApp.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+
+    <style name="ThemeOverlay.MyApp.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <!--<item name="actionMenuTextColor">@android:color/white</item>-->
+        <!--<item name="actionMenuTextColor">@color/secondary_text</item>-->
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@android:drawable/ic_menu_search</item>
+        <item name="closeIcon">@android:drawable/ic_menu_close_clear_cancel</item>
+    </style>
+
+    <style name="AppThemeTransparentWithBar" parent="android:Theme.DeviceDefault">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <style name="Theme.Fullscreen" parent="android:Theme.Holo.NoActionBar.Fullscreen" />
+
+    <style name="MaterialSearchViewStyle">
+        <!--<item name="searchBackground">@color/almost_white</item>-->
+        <item name="searchVoiceIcon">@drawable/ic_action_voice_search</item>
+        <item name="searchCloseIcon">@drawable/icon_close</item>
+        <item name="searchBackIcon">@drawable/ic_action_navigation_arrow_back</item>
+        <!--<item name="searchSuggestionBackground">@color/search_layover_bg</item>-->
+        <!--<item name="searchBackground">@color/semi_transparent</item>-->
+        <!--<item name="searchSuggestionBackground">@color/semi_transparent</item>-->
+        <item name="searchBarHeight">?attr/actionBarSize</item>
+        <item name="voiceHintPrompt">@string/hint_prompt</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray_50</item>
+        <item name="android:hint">@string/search_hint</item>
+        <item name="android:inputType">textCapWords</item>
+    </style>
+
+    <style name="TransparentDialog" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/FragmentDialogFadeAnimation.Window</item>
+    </style>
+
+    <style name="FragmentDialogFadeAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/anim_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_fade_out</item>
+    </style>
+
+</resources>
