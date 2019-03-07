@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp">
 
-            <android.support.v7.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/map_fab"
                 android:background="@drawable/circle_1"
                 android:layout_width="@dimen/btn_size"
@@ -131,7 +131,7 @@
             android:layout_marginEnd="10dp"
             />
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/fav_button"
             android:background="@drawable/circle_1"
             android:layout_width="@dimen/btn_size"
@@ -178,7 +178,7 @@
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"/>-->
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/btn_phone"
             android:background="@drawable/circle_1"
             android:layout_width="@dimen/btn_size"
@@ -186,7 +186,7 @@
             android:src="@drawable/link_phone"
             android:padding="12dp"
             android:layout_marginEnd="10dp"/>
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/btn_web"
             android:layout_width="@dimen/btn_size"
             android:layout_height="@dimen/btn_size"
@@ -194,7 +194,7 @@
             android:padding="0dp"
             android:layout_marginEnd="10dp"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/btn_tripadvisor"
             android:background="@drawable/circle_1"
             android:layout_width="@dimen/btn_size"
@@ -202,7 +202,7 @@
             android:src="@drawable/link_tripadvisor"
             android:padding="0dp"
             android:layout_marginEnd="10dp"  />
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/btn_etable"
             android:background="@drawable/circle_1"
             android:layout_width="@dimen/btn_size"

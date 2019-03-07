@@ -151,6 +151,7 @@ public class BaseActivity extends AppCompatActivity {
         if(inflater != null) {
             drawerFooter = (ViewGroup)inflater.inflate(R.layout.drawer_footer, null);
             TextView footerText = drawerFooter.findViewById(R.id.text);
+            footerText.setTextColor(getResources().getColor(R.color.gray));
             footerText.setText(String.format("Version: %s", BuildConfig.VERSION_NAME));
         }
 

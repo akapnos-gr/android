@@ -74,7 +74,7 @@ public class Store implements Serializable {
         city = cleanString(map.get("geolocation_city"));
         postcode = cleanString(map.get("geolocation_postcode"));
 
-        etableSlug = cleanString(map.get("etableSlug"));
+        etableSlug = cleanString(map.get("etableslug"));
 
         String image_featured = cleanString(map.get("Image Featured"));
         if(image_featured.length() > 0) {

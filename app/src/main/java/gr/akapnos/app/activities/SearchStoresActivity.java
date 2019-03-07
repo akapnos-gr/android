@@ -15,7 +15,6 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -62,8 +61,8 @@ import gr.akapnos.app.Statics;
 import gr.akapnos.app.TheApplication;
 import gr.akapnos.app.libraries.custombottomsheetbehavior.BottomSheetBehaviorGoogleMapsLike;
 import gr.akapnos.app.libraries.custombottomsheetbehavior.MergedAppBarLayoutBehavior;
-import gr.akapnos.app.map_classes.DirectionsGetter;
 import gr.akapnos.app.map_classes.AddPinsToMapTask;
+import gr.akapnos.app.map_classes.DirectionsGetter;
 import gr.akapnos.app.map_classes.MapClusterItem;
 import gr.akapnos.app.objects.Store;
 import gr.akapnos.app.utilities.ImageDL;
@@ -126,7 +125,7 @@ public class SearchStoresActivity extends BaseActivity {
     @BindView(R.id.btn_tripadvisor) View btn_tripadvisor;
     @BindView(R.id.btn_etable) View btn_etable;
 
-    @BindView(R.id.fav_button) AppCompatImageView fav_button;
+    @BindView(R.id.fav_button) ImageView fav_button;
     @BindView(R.id.store_image) ImageView store_image;
     @BindView(R.id.image_progress) ProgressBar image_progress;
 
