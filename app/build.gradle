@@ -40,8 +40,8 @@ android {
             resValue("string", "google_play_api_key", "AIzaSyBNS3qP2EAIRa2qGAi0DR2reFeu9Yw-SfY")
             resValue("string", "google_play_server_api_key", "AIzaSyASUo1XIOqqgaBoIhzulFSM7rNySnc0XT0")
             signingConfig signingConfigs.akapnos
-            versionCode 4
-            versionName '1.0.3'
+            versionCode 5
+            versionName '1.0.4'
             setProperty("archivesBaseName", applicationId + "-v" + versionCode + "(" + versionName + ")")
         }
     }

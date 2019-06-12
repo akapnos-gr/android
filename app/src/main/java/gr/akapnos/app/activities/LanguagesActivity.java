@@ -280,7 +280,8 @@ public class LanguagesActivity extends BaseActivity {
         Helper.setVisibilityTo(langs_container, false);
         selected_lang = language;
         changeLanguage(language);
-        checkUpdate();
+        getData();
+//        checkUpdate();
     }
 
     private void checkUpdate() {

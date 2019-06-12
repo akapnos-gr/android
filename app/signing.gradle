@@ -1,10 +1,10 @@
 android {
     signingConfigs {
         akapnos {
-            storeFile file("C:\\Users\\Sauron\\Desktop\\akapnos\\akapnos\\Akapnos_Keystore.jks")
-            storePassword "akapnos147"
-            keyAlias "akapnos"
-            keyPassword "akapnos147"
+            storeFile file(" ")
+            storePassword " "
+            keyAlias " "
+            keyPassword " "
         }
     }
 }
