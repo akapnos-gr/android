@@ -50,6 +50,7 @@ public class Store implements Serializable {
     private ArrayList certificate_images;
 
     private String etableSlug;
+    private String etableLink;
 
     private boolean calculatedDistance = false;
     private float distanceToUser = -1;
@@ -75,6 +76,7 @@ public class Store implements Serializable {
         postcode = cleanString(map.get("geolocation_postcode"));
 
         etableSlug = cleanString(map.get("etableslug"));
+        etableLink = cleanString(map.get("etablelink"));
 
         String image_featured = cleanString(map.get("Image Featured"));
         if(image_featured.length() > 0) {
@@ -83,6 +85,14 @@ public class Store implements Serializable {
         }
     }
 
+
+    public String getEtableLink() {
+        return Helper.safeString(etableLink);
+    }
+
+    public void setEtableLink(String etableLink) {
+        this.etableLink = etableLink;
+    }
 
     public String getEtableSlug() {
         return Helper.safeString(etableSlug);

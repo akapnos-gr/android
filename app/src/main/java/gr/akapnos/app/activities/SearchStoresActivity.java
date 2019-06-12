@@ -710,7 +710,7 @@ public class SearchStoresActivity extends BaseActivity {
             Helper.setVisibilityTo(btn_phone, store.getPhone().length() > 0);
             Helper.setVisibilityTo(btn_web, store.getWebsite().length() > 0);
             Helper.setVisibilityTo(btn_tripadvisor, store.getTripadvisor().length() > 0);
-            Helper.setVisibilityTo(btn_etable, store.getEtableSlug().length() > 0);
+            Helper.setVisibilityTo(btn_etable, store.getEtableLink().length() > 0 || store.getEtableSlug().length() > 0);
 
             store_type.setText(store.getType_string());
             btn_phone.setOnClickListener(new View.OnClickListener() {
@@ -734,9 +734,12 @@ public class SearchStoresActivity extends BaseActivity {
             btn_etable.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Statics.openURL(SearchStoresActivity.this, "https://www.e-table.gr/restaurant/" + store.getEtableSlug() + "?etref=akapnos&utm_source=akapnos.gr&utm_medium=referral&utm_campaign=akapnosaffiliate"
-
-, true);
+                    if(store.getEtableLink().length() > 0) {
+                        Statics.openURL(SearchStoresActivity.this, store.getEtableLink(), true);
+                    }
+                    else {
+                        Statics.openURL(SearchStoresActivity.this, "https://www.e-table.gr/restaurant/" + store.getEtableSlug() + "?etref=akapnos&utm_source=akapnos.gr&utm_medium=referral&utm_campaign=akapnosaffiliate", true);
+                    }
                 }
             });
 
@@ -1000,7 +1003,7 @@ public class SearchStoresActivity extends BaseActivity {
 
             holder.distance_label.setText(store.distanceToUserDesc());
 
-            Helper.setVisibilityTo(holder.etable_indicator, store.getEtableSlug().length() > 0);
+            Helper.setVisibilityTo(holder.etable_indicator, store.getEtableLink().length() > 0 || store.getEtableSlug().length() > 0);
 
             Helper.setVisibilityToTextView(holder.title);
             Helper.setVisibilityToTextView(holder.subtitle);
