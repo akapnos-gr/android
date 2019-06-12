@@ -18,15 +18,13 @@ android {
         multiDexEnabled true
     }
     buildTypes {
-        buildTypes {
-            debug {
-                manifestPlaceholders = [cleartext_traffic_permitted: true, crashlytics_enabled: false]
-            }
-            release {
-                minifyEnabled false
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-                manifestPlaceholders = [cleartext_traffic_permitted: false, crashlytics_enabled: true]
-            }
+        debug {
+            manifestPlaceholders = [cleartext_traffic_permitted: true, crashlytics_enabled: false]
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [cleartext_traffic_permitted: false, crashlytics_enabled: true]
         }
     }
     compileOptions {
@@ -42,8 +40,8 @@ android {
             resValue("string", "google_play_api_key", "AIzaSyBNS3qP2EAIRa2qGAi0DR2reFeu9Yw-SfY")
             resValue("string", "google_play_server_api_key", "AIzaSyASUo1XIOqqgaBoIhzulFSM7rNySnc0XT0")
             signingConfig signingConfigs.akapnos
-            versionCode 3
-            versionName '1.0.2'
+            versionCode 4
+            versionName '1.0.3'
             setProperty("archivesBaseName", applicationId + "-v" + versionCode + "(" + versionName + ")")
         }
     }
