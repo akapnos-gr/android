@@ -62,6 +62,7 @@ public class Helper {
 
     private static ArrayList<Store> stores;
     private static int secondsToRefreshData = 259200; //three days
+    public static boolean MAP_ICONS_WITH_BADGES = true;
 
 
     // ************************************ //
@@ -294,19 +295,45 @@ public class Helper {
     }
 
     public static int iconForStoreType(int store_type) {
+        return Helper.iconForStoreType(store_type, false);
+    }
+    public static int iconForStoreType(int store_type, boolean badge) {
         int drawable_id = -1;
-        switch (store_type) {
-            case typeBAR:
-                drawable_id = R.drawable.map_pin_bar;
-                break;
-            case typeCAFE:
-                drawable_id = R.drawable.map_pin_cafe;
-                break;
-            case typeRESTAURANT:
-                drawable_id = R.drawable.map_pin_restaurant;
-                break;
-            default:
-                break;
+
+        if(Helper.MAP_ICONS_WITH_BADGES) {
+            if(badge) {
+                drawable_id = R.drawable.map_pin_general;
+            }
+            else {
+                switch (store_type) {
+                    case typeBAR:
+                        drawable_id = R.drawable.map_icon_bar;
+                        break;
+                    case typeCAFE:
+                        drawable_id = R.drawable.map_icon_cafe;
+                        break;
+                    case typeRESTAURANT:
+                        drawable_id = R.drawable.map_icon_restaurant;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        else {
+            switch (store_type) {
+                case typeBAR:
+                    drawable_id = R.drawable.map_pin_bar;
+                    break;
+                case typeCAFE:
+                    drawable_id = R.drawable.map_pin_cafe;
+                    break;
+                case typeRESTAURANT:
+                    drawable_id = R.drawable.map_pin_restaurant;
+                    break;
+                default:
+                    break;
+            }
         }
         return drawable_id;
     }
@@ -316,13 +343,13 @@ public class Helper {
         switch (store_type) {
             case typeNONE:
             case typeBAR:
-                colorHex = "DC0613";//keycolor
+                colorHex = "0f9547";
                 break;
             case typeCAFE:
-                colorHex = "2F4499";
+                colorHex = "f69039";
                 break;
             case typeRESTAURANT:
-                colorHex = "FBE106";
+                colorHex = "4561d8";
                 break;
         }
         return Helper.colorFromHEX(colorHex);

@@ -60,7 +60,9 @@ public class Store implements Serializable {
     public Store(Map<String, String> map) {
         store_id = cleanString(map.get("ID"));
         title = cleanString(map.get("Title"));
-        type_string = cleanString(map.get("Listing Κατηγοριών"));
+        String str = map.get("Listing Κατηγοριών");
+        type_string = str == null ? "" : str;
+//        type_string = cleanString(map.get("Listing Κατηγοριών"));
 
         latitude = cleanString(map.get("geolocation_lat"));
         longitude = cleanString(map.get("geolocation_long"));
@@ -383,6 +385,10 @@ public class Store implements Serializable {
         }
         return "";
     }
+
+    public boolean isBar() { return getType_string().contains("Μπαρ"); }
+    public boolean isCafe() { return getType_string().contains("Καφέ"); }
+    public boolean isRestaurant() { return getType_string().contains("Εστιατόρια"); }
 
     @Override
     public String toString() {

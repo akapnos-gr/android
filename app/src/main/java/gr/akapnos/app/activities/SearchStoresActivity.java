@@ -11,6 +11,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
@@ -216,8 +217,8 @@ public class SearchStoresActivity extends BaseActivity {
         filtersData = new ArrayList<>();
         filtersData.add(typeNONE);
         filtersData.add(typeFAVORITE);
-        filtersData.add(typeBAR);
         filtersData.add(typeCAFE);
+        filtersData.add(typeBAR);
         filtersData.add(typeRESTAURANT);
 
         filters_recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -869,6 +870,9 @@ public class SearchStoresActivity extends BaseActivity {
             Log.v("DisplayMarkers - SearchNow: " + search_string);
             displayMarkers();
 //        }
+        if(map_list_adapter != null) {
+            map_list_adapter.notifyDataSetChanged();
+        }
     }
 
     private void showHideClearSearch() {
@@ -939,13 +943,14 @@ public class SearchStoresActivity extends BaseActivity {
 
     class MapListAdapter extends RecyclerView.Adapter<MapListAdapter.MapListItem> {
         private int transparent_color = getResources().getColor(android.R.color.transparent);
+        private ArrayList<ImageView> icons;
 
         MapListAdapter() {}
 
         @NonNull
         @Override
         public MapListItem onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.map_list_item, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(Helper.MAP_ICONS_WITH_BADGES ? R.layout.map_list_item2 : R.layout.map_list_item, parent, false);
             return new MapListItem(v);
         }
 
@@ -957,6 +962,10 @@ public class SearchStoresActivity extends BaseActivity {
         class MapListItem extends RecyclerView.ViewHolder {
 
             @BindView(R.id.bulletPoint) ImageView bulletPoint;
+            @Nullable
+            @BindView(R.id.bulletPoint2) ImageView bulletPoint2;
+            @Nullable
+            @BindView(R.id.bulletPoint3) ImageView bulletPoint3;
             @BindView(R.id.title) TextView title;
             @BindView(R.id.subtitle) TextView subtitle;
             @BindView(R.id.distance_label) TextView distance_label;
@@ -965,6 +974,13 @@ public class SearchStoresActivity extends BaseActivity {
             MapListItem(View view) {
                 super(view);
                 ButterKnife.bind(this, view);
+
+                if(Helper.MAP_ICONS_WITH_BADGES) {
+                    icons = new ArrayList<>();
+                    icons.add(bulletPoint);
+                    icons.add(bulletPoint2);
+                    icons.add(bulletPoint3);
+                }
 
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -987,15 +1003,49 @@ public class SearchStoresActivity extends BaseActivity {
         public void onBindViewHolder(@NonNull MapListItem holder, int position) {
             final Store store = stores_list.get(position);
 
-            Drawable drawable = Helper.drawableForStoreType(SearchStoresActivity.this, store.getStoreType());
-            int store_type = store.getStoreType();
-            if(drawable == null) {
-                ((GradientDrawable) holder.bulletPoint.getBackground()).setColor((store_type == typeNONE) ? transparent_color : Helper.colorForStoreType(store_type));
-                holder.bulletPoint.setImageDrawable(null);
+            if(Helper.MAP_ICONS_WITH_BADGES) {
+                boolean is_cafe = store.isCafe();
+                boolean is_bar = store.isBar();
+                boolean is_restaurant = store.isRestaurant();
+
+                int index = 0;
+
+                if(is_cafe) {
+                    ImageView img = icons.get(index);
+                    img.setImageDrawable(Helper.drawableForStoreType(SearchStoresActivity.this, typeCAFE));
+                    index++;
+                    Helper.setVisibilityTo(img, true);
+                }
+                if(is_bar) {
+                    ImageView img = icons.get(index);
+                    img.setImageDrawable(Helper.drawableForStoreType(SearchStoresActivity.this, typeBAR));
+                    index++;
+                    Helper.setVisibilityTo(img, true);
+                }
+                if(is_restaurant) {
+                    ImageView img = icons.get(index);
+                    img.setImageDrawable(Helper.drawableForStoreType(SearchStoresActivity.this, typeRESTAURANT));
+                    index++;
+                    Helper.setVisibilityTo(img, true);
+                }
+//                Log.e("AKSDJNA == " + store.getTitle() + " == " + store.getType_string() + " - " + is_cafe + "," +is_bar + ","+is_restaurant+ " == " + index);
+                for(int i=index;i<icons.size();i++) {
+                    ImageView img = icons.get(i);
+                    img.setImageDrawable(null);
+                    Helper.setVisibilityTo(img, false);
+                }
             }
             else {
-                ((GradientDrawable) holder.bulletPoint.getBackground()).setColor(transparent_color);
-                holder.bulletPoint.setImageDrawable(drawable);
+                Drawable drawable = Helper.drawableForStoreType(SearchStoresActivity.this, store.getStoreType());
+
+                int store_type = store.getStoreType();
+                if (drawable == null) {
+                    ((GradientDrawable) holder.bulletPoint.getBackground()).setColor((store_type == typeNONE) ? transparent_color : Helper.colorForStoreType(store_type));
+                    holder.bulletPoint.setImageDrawable(null);
+                } else {
+                    ((GradientDrawable) holder.bulletPoint.getBackground()).setColor(transparent_color);
+                    holder.bulletPoint.setImageDrawable(drawable);
+                }
             }
 
             holder.title.setText(store.getTitle());

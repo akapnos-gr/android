@@ -25,15 +25,19 @@ class OwnIconRendered extends DefaultClusterRenderer<MapClusterItem> {
     protected void onBeforeClusterItemRendered(MapClusterItem item, final MarkerOptions markerOptions) {
         Store obj = item.getStore();
 
-        final int icon_id = Helper.iconForStoreType(obj.getStoreType());
-        if(icon_id == -1) {
-            float color = BitmapDescriptorFactory.HUE_RED;
-            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(color));
+        if(Helper.MAP_ICONS_WITH_BADGES) {
+            markerOptions.icon(TheApplication.getBitmapDescriptor(the_context, obj));
         }
         else {
+            final int icon_id = Helper.iconForStoreType(obj.getStoreType(), true);
+            if (icon_id == -1) {
+                float color = BitmapDescriptorFactory.HUE_RED;
+                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(color));
+            } else {
 //            Drawable drawable = the_context.getResources().getDrawable(icon_id);
 //            markerOptions.icon(getMarkerIconFromDrawable(drawable));
-            markerOptions.icon(TheApplication.getBitmapDescriptor(icon_id));
+                markerOptions.icon(TheApplication.getBitmapDescriptor(icon_id));
+            }
         }
 
         markerOptions.title(item.getTitle());
